@@ -1,0 +1,16 @@
+{
+  "name": "demo-project",
+  "version": "1.0.0",
+  "dependencies": {
+    "lodash": "4.17.21",
+    "express": "^4.18.0",
+    "@scoped/pkg": "1.0.0",
+    "local-thing": "file:../local"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
+}

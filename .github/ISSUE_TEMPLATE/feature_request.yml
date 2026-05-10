@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an improvement or new capability.
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the use case before the solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: |
+        How might sphinx-sbom-generator address this? CLI flag? New parser?
+        New output format? Sketch the UX you'd find useful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds, other tools, or other approaches you've thought about.
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context

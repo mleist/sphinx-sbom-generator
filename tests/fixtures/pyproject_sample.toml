@@ -1,0 +1,33 @@
+[project]
+name = "demo"
+version = "1.0.0"
+dependencies = [
+    "requests>=2.28",
+    "click==8.1.7",
+    "remote-wheel @ https://example.com/remote-wheel-1.0-py3-none-any.whl",
+]
+
+[project.optional-dependencies]
+docs = ["sphinx>=7.0", "myst-parser"]
+test = ["pytest>=7"]
+
+[dependency-groups]
+lint = ["ruff>=0.5", "mypy>=1.8"]
+typing = [
+    {include-group = "lint"},
+    "types-requests",
+]
+
+[tool.poetry]
+name = "demo-poetry"
+version = "1.0.0"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0"
+gunicorn = ">=21.0"
+local-thing = { path = "../local" }
+git-thing = { git = "https://github.com/example/repo.git" }
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.0"

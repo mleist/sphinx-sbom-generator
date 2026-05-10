@@ -1,0 +1,123 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sphinx-sbom-generator"
+version = "0.3.0"
+description = "Generate a Sphinx-ready Markdown SBOM from requirements.txt, pyproject.toml, and package.json manifests, with optional transitive dependency resolution."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Markus Leist", email = "markus@lei.st" }]
+keywords = ["sbom", "security", "vulnerabilities", "sphinx", "documentation", "supply-chain"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Security",
+    "Topic :: Software Development :: Documentation",
+]
+dependencies = [
+    "requests>=2.28",
+    "packaging>=23.0",
+    "tomli>=2.0; python_version<'3.11'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "responses>=0.24",
+    "ruff>=0.5",
+    "mypy>=1.8",
+    "types-requests>=2.31",
+    "pre-commit>=3.5",
+    "build>=1.0",
+]
+
+[project.scripts]
+sphinx-sbom-generator = "sbom_generator.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mleist/sphinx-sbom-generator"
+Issues = "https://github.com/mleist/sphinx-sbom-generator/issues"
+Changelog = "https://github.com/mleist/sphinx-sbom-generator/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sbom_generator"]
+
+# ---------------------------------------------------------------------------
+# Tooling
+# ---------------------------------------------------------------------------
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "UP",   # pyupgrade
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+    "RUF",  # ruff-specific
+]
+ignore = [
+    "E501",  # line length is checked by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B", "SIM"]
+
+[tool.mypy]
+# We support 3.9 at runtime (see `requires-python`), but mypy itself
+# only accepts 3.10+ as the minimum analysis target. The combination
+# of `from __future__ import annotations` everywhere plus
+# pyupgrade-style annotations means 3.9 still works at runtime.
+python_version = "3.10"
+strict = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning:pkg_resources",
+]
+
+[tool.coverage.run]
+source = ["sbom_generator"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+show_missing = true

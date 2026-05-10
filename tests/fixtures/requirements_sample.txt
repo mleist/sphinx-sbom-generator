@@ -1,0 +1,17 @@
+# Comment line, should be ignored
+requests==2.31.0
+flask>=2.0,<3.0
+django  # any version
+pyyaml==5.3 --hash=sha256:abcdef
+
+# Continuation:
+black==23.\
+12.0
+
+# These should be skipped with a log warning:
+-e ./local-pkg
+-r other-requirements.txt
+--index-url https://example.com/simple
+
+# Malformed line (parser logs and skips):
+not a valid spec @@@

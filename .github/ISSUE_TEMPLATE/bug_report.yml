@@ -1,0 +1,85 @@
+name: Bug report
+description: Report a defect in sphinx-sbom-generator.
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Please fill out the fields below.
+        For security issues, please follow the process in `SECURITY.md`
+        instead of opening a public report.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: |
+        The most useful thing you can include is a minimal manifest
+        snippet plus the exact command you ran.
+      placeholder: |
+        1. Save this `requirements.txt`:
+           ```
+           example==1.2.3
+           ```
+        2. Run `sphinx-sbom-generator -r requirements.txt -o sbom.md`
+        3. ...
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include error messages or relevant log output. Re-run with `-vv` for debug logs.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: sphinx-sbom-generator version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: "3.12.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Anything else that might be relevant.

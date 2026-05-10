@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/mleist/sphinx-sbom-generator/security/advisories/new
+    about: Report security issues privately. See SECURITY.md.
+  - name: Question or discussion
+    url: https://github.com/mleist/sphinx-sbom-generator/discussions
+    about: For usage questions and design discussion.
