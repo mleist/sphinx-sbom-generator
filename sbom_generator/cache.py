@@ -62,7 +62,7 @@ class JsonFileCache:
         entry = self._data.get(key)
         if entry is None:
             return None
-        if time.time() - entry.get("ts", 0) > self.ttl_seconds:
+        if time.time() - entry.get("ts", 0) >= self.ttl_seconds:
             return None
         return entry.get("value")
 
