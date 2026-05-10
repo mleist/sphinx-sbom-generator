@@ -7,7 +7,7 @@ name = "sphinx-sbom-generator"
 version = "0.3.0"
 description = "Generate a Sphinx-ready Markdown SBOM from requirements.txt, pyproject.toml, and package.json manifests, with optional transitive dependency resolution."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { file = "LICENSE" }
 authors = [{ name = "Markus Leist", email = "markus@lei.st" }]
 keywords = ["sbom", "security", "vulnerabilities", "sphinx", "documentation", "supply-chain"]
@@ -17,11 +17,11 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Documentation :: Sphinx",
     "Topic :: Security",
     "Topic :: Software Development :: Documentation",

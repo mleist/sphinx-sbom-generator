@@ -1,7 +1,7 @@
 # sphinx-sbom-generator
 
 [![CI](https://github.com/mleist/sphinx-sbom-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mleist/sphinx-sbom-generator/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](LICENSE)
 
 Generate a Software Bill of Materials (SBOM) as a Sphinx-ready Markdown
@@ -26,7 +26,7 @@ For development:
 pip install -e ".[dev]"
 ```
 
-Requires Python 3.9+.
+Requires Python 3.10+.
 
 ## Usage
 
